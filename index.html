@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson 47: Software Build Showcase</title>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --ink: #172033;
+      --accent: #2867d0;
+      --ok: #0c8a5f;
+      --line: #dde5f1;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    header {
+      background: linear-gradient(120deg, #163e87, #2867d0);
+      color: #fff;
+      padding: 1.25rem;
+    }
+    main {
+      max-width: 1000px;
+      margin: 1rem auto 2rem;
+      padding: 0 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 6px 18px rgba(18, 37, 74, 0.07);
+    }
+    h1, h2, h3 { margin-top: 0; }
+    .timeline {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .phase {
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 0.75rem;
+      background: #fbfdff;
+    }
+    .phase small { color: #4b5a75; }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    button {
+      border: 1px solid #245ec4;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    button.secondary {
+      background: #fff;
+      color: #245ec4;
+    }
+    .countdown {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .rubric-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.75rem;
+      background: #fcfdff;
+    }
+    .token-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .token {
+      border: 1px solid #9bb6eb;
+      background: #eef4ff;
+      color: #173667;
+      border-radius: 999px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.9rem;
+    }
+    .winner {
+      font-weight: 700;
+      color: var(--ok);
+      margin-top: 0.5rem;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      background: #fefefe;
+    }
+    details + details { margin-top: 0.5rem; }
+    footer {
+      text-align: center;
+      color: #4b5a75;
+      font-size: 0.95rem;
+      padding: 0 1rem 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lesson 47: Software Build Showcase</h1>
+    <p>Interactive 60-minute micro site for Sixth-form Computer Science students.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="lesson-flow-title">
+      <h2 id="lesson-flow-title">Lesson Structure (60 Minutes)</h2>
+      <div class="timeline">
+        <article class="phase">
+          <h3>1) Do Now / Starter (5–7 mins)</h3>
+          <small>Image critique on entry using sticky notes.</small>
+          <ul>
+            <li>Write <strong>three things wrong</strong> with the app design shown.</li>
+            <li>Prompt: “If you were the developer, what user requirements did they ignore?”</li>
+            <li>Purpose: immediate settling task + UX-focused requirement analysis.</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <h3>2) Hook & Context (5 mins)</h3>
+          <ul>
+            <li>Reveal challenge: create an inventive software design showcase.</li>
+            <li>Class vote decides winner.</li>
+            <li>Prize + chance to present to <strong>BlueShift Education</strong> in assembly on <strong>Tuesday 2nd June 2026</strong>.</li>
+            <li>Rubric reminder: clear problem definition + proposed solution.</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <h3>3) Main Activity: “The BlueShift Pitch” (25 mins)</h3>
+          <ul>
+            <li>Create a pitch in one medium: poster, role-play pitch, paper prototype, or storyboard.</li>
+            <li>Prepare a short defense of design choices.</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <h3>4) Showcase & Peer Assessment (15 mins)</h3>
+          <ul>
+            <li>Gallery walk or rapid-fire elevator pitches.</li>
+            <li>Each student receives three voting tokens.</li>
+            <li>Votes based on Clarity, Detail, and Innovation.</li>
+          </ul>
+        </article>
+
+        <article class="phase">
+          <h3>5) Plenary & Winner Announcement (8 mins)</h3>
+          <ul>
+            <li>Announce winner and award prize.</li>
+            <li>Winner explains one key design constraint and how it was overcome.</li>
+            <li>Exit ticket: one refinement based on peer feedback.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="timer-title">
+      <h2 id="timer-title">Live Lesson Timer</h2>
+      <p>Select a phase duration, then run the classroom timer.</p>
+      <div class="controls" role="group" aria-label="Timer presets">
+        <button data-mins="7">Do Now (7)</button>
+        <button data-mins="5">Hook (5)</button>
+        <button data-mins="25">Main Task (25)</button>
+        <button data-mins="15">Showcase (15)</button>
+        <button data-mins="8">Plenary (8)</button>
+        <button class="secondary" id="stopTimer">Stop</button>
+      </div>
+      <div class="countdown" id="countdown" aria-live="polite">Timer not running</div>
+    </section>
+
+    <section class="card" aria-labelledby="support-title">
+      <h2 id="support-title">Differentiation & Criteria Support</h2>
+      <div class="grid">
+        <article class="rubric-item">
+          <h3>Level 1 Scaffold</h3>
+          <ul>
+            <li>Use a Design Pitch Template with sentence starters.</li>
+            <li>Prompt structure: purpose → users → user requirements → solution outline.</li>
+            <li>Chunk work into short checkpoints every 5 minutes.</li>
+          </ul>
+        </article>
+        <article class="rubric-item">
+          <h3>Level 2 Pass Checklist</h3>
+          <ul>
+            <li>Explicit problem definition statement.</li>
+            <li>Clear proposed solution.</li>
+            <li>Pre-defined functions/subroutines list.</li>
+            <li>At least two test plan ideas.</li>
+          </ul>
+        </article>
+        <article class="rubric-item">
+          <h3>Merit / Distinction Extension</h3>
+          <ul>
+            <li>Add wireframes/flowcharts to compare alternatives (Merit).</li>
+            <li>Defend choices using constraints: time, technical feasibility, user needs, maintainability (Distinction).</li>
+            <li>Justify why chosen feature was better than one alternative.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="voting-title">
+      <h2 id="voting-title">Peer Voting Demo (3 Tokens)</h2>
+      <p>Use this simple in-class demo for transparent voting criteria.</p>
+      <div class="token-row" id="tokens" aria-live="polite">
+        <span class="token">Tokens left: <strong id="tokenCount">3</strong></span>
+      </div>
+      <div class="controls" role="group" aria-label="Vote options">
+        <button class="secondary" data-vote="Clarity">Vote Clarity</button>
+        <button class="secondary" data-vote="Detail">Vote Detail</button>
+        <button class="secondary" data-vote="Innovation">Vote Innovation</button>
+        <button id="resetVotes">Reset Votes</button>
+      </div>
+      <ul id="voteLog"></ul>
+      <p class="winner" id="voteSummary">No votes yet.</p>
+    </section>
+
+    <section class="card" aria-labelledby="teacher-notes-title">
+      <h2 id="teacher-notes-title">Teacher Notes for Observation Panel</h2>
+      <details open>
+        <summary><strong>Assessment for Learning (AfL)</strong></summary>
+        Continuous AfL is built into the Do Now, teacher questioning during prep, and peer voting during showcases.
+      </details>
+      <details>
+        <summary><strong>Inclusivity</strong></summary>
+        Choice of output format (visual, verbal, physical) supports different learner profiles. Templates prevent lower-mark students from feeling overwhelmed.
+      </details>
+      <details>
+        <summary><strong>Engagement</strong></summary>
+        The BlueShift audience and competitive voting increase authentic motivation and improve quality of justification.
+      </details>
+    </section>
+
+    <section class="card" aria-labelledby="faq-title">
+      <h2 id="faq-title">Quick Answers to Key Teacher Questions</h2>
+      <div class="grid">
+        <article class="rubric-item">
+          <h3>What prize could we give?</h3>
+          <ul>
+            <li>BlueShift mentoring slot or branded tech item.</li>
+            <li>Raspberry Pi / micro:bit starter kit.</li>
+            <li>Coding platform voucher (e.g., Udemy/Codecademy).</li>
+            <li>Developer accessories (wireframing notebook, desk kit).</li>
+          </ul>
+        </article>
+        <article class="rubric-item">
+          <h3>How to support lower-mark students?</h3>
+          <ul>
+            <li>Sentence-starter template and model example.</li>
+            <li>Checklist with must-include Pass points.</li>
+            <li>Guided teacher prompts: “Who is the user?” “What problem is solved?”</li>
+            <li>Pair support and mini-deadlines.</li>
+          </ul>
+        </article>
+        <article class="rubric-item">
+          <h3>What meets Distinction justification?</h3>
+          <ul>
+            <li>Clear comparison against at least one alternative.</li>
+            <li>Reasoning linked to constraints and user needs.</li>
+            <li>Technical feasibility and testing implications.</li>
+            <li>Evidence from wireframe/flowchart or prototype choices.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Built for Lesson 47 • Software Build Showcase • Sixth-form Computer Science
+  </footer>
+
+  <script>
+    const countdown = document.getElementById('countdown');
+    const stopBtn = document.getElementById('stopTimer');
+    let timer = null;
+
+    function renderTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function startTimer(minutes) {
+      clearInterval(timer);
+      let remaining = minutes * 60;
+      countdown.textContent = `Running: ${renderTime(remaining)}`;
+      timer = setInterval(() => {
+        remaining -= 1;
+        countdown.textContent = remaining > 0
+          ? `Running: ${renderTime(remaining)}`
+          : 'Time complete ✅';
+        if (remaining <= 0) clearInterval(timer);
+      }, 1000);
+    }
+
+    document.querySelectorAll('button[data-mins]').forEach((btn) => {
+      btn.addEventListener('click', () => startTimer(Number(btn.dataset.mins)));
+    });
+
+    stopBtn.addEventListener('click', () => {
+      clearInterval(timer);
+      countdown.textContent = 'Timer stopped';
+    });
+
+    const tokenCount = document.getElementById('tokenCount');
+    const voteLog = document.getElementById('voteLog');
+    const voteSummary = document.getElementById('voteSummary');
+    const resetVotes = document.getElementById('resetVotes');
+    const votes = { Clarity: 0, Detail: 0, Innovation: 0 };
+    let tokens = 3;
+
+    function updateVotes() {
+      tokenCount.textContent = tokens;
+      const ranked = Object.entries(votes).sort((a, b) => b[1] - a[1]);
+      voteSummary.textContent = ranked.every((x) => x[1] === 0)
+        ? 'No votes yet.'
+        : `Current leading criterion: ${ranked[0][0]} (${ranked[0][1]} vote${ranked[0][1] === 1 ? '' : 's'})`;
+    }
+
+    document.querySelectorAll('button[data-vote]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        if (tokens <= 0) {
+          voteSummary.textContent = 'No tokens left. Reset to vote again.';
+          return;
+        }
+        const criterion = btn.dataset.vote;
+        votes[criterion] += 1;
+        tokens -= 1;
+        const item = document.createElement('li');
+        item.textContent = `Token used for ${criterion}`;
+        voteLog.appendChild(item);
+        updateVotes();
+      });
+    });
+
+    resetVotes.addEventListener('click', () => {
+      tokens = 3;
+      votes.Clarity = 0;
+      votes.Detail = 0;
+      votes.Innovation = 0;
+      voteLog.innerHTML = '';
+      updateVotes();
+    });
+
+    updateVotes();
+  </script>
+</body>
+</html>
